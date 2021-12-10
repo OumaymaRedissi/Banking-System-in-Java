@@ -1,10 +1,11 @@
 module com.example.bank {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
 
-    opens com.example.bank to javafx.fxml;
-    exports com.example.bank;
-    exports com.example.bank.Controllers;
-    opens com.example.bank.Controllers to javafx.fxml;
+    opens com.bank to javafx.fxml;
+    exports com.bank;
+    exports com.bank.Controllers;
+    opens com.bank.Controllers to javafx.fxml;
 }

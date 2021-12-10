@@ -1,17 +1,19 @@
-package com.example.bank.Models;
+package com.bank.Models;
 
 import java.util.Date;
 
 public class ClientModel {
-    private String id_clt;
+
+    static long idit=1;
+    private long id_clt;
     private String nomPrenom;
     private Date date_n;
     private String el;
     private String email;
     private String adr;
 
-    public ClientModel(String id_clt, String nomPrenom, Date date_n, String el, String email, String adr) {
-        this.id_clt = id_clt;
+    public ClientModel( String nomPrenom, Date date_n, String el, String email, String adr) {
+        this.id_clt = idit++;
         this.nomPrenom = nomPrenom;
         this.date_n = date_n;
         this.el = el;
@@ -19,7 +21,7 @@ public class ClientModel {
         this.adr = adr;
     }
 
-    public String getId_clt() {
+    public Long getId_clt() {
         return id_clt;
     }
 

@@ -1,9 +1,9 @@
-package com.example.bank.Models;
+package com.bank.Models;
 
 import java.util.Date;
 
 public class TransactionModel {
-    private enum TypeTransaction{Depot, Retrait, Virement}
+
     private long num_op;
     private TypeTransaction type_op;
     private Date date_op;
