@@ -18,13 +18,13 @@
    <children>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
          <children>
-            <TabPane prefHeight="330.0" prefWidth="466.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Transactions">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="414.0">
                            <children>
-                              <TableView layoutX="50.0" layoutY="12.0" prefHeight="258.0" prefWidth="302.0">
+                              <TableView layoutX="60.0" layoutY="26.0" prefHeight="320.0" prefWidth="480.0">
                                 <columns>
                                   <TableColumn prefWidth="75.0" text="Numéro" />
                                   <TableColumn prefWidth="75.0" text="Type" />
@@ -40,18 +40,18 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="358.0">
                            <children>
-                              <Line endX="284.0" layoutX="16.0" layoutY="14.0" startX="76.0" stroke="#2980b9" />
-                              <Line endX="284.0" layoutX="16.0" layoutY="45.0" startX="76.0" stroke="#2980b9" />
-                              <Text fill="#2980b9" layoutX="166.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dépôt" wrappingWidth="61.20001220703125">
+                              <Line endX="284.0" layoutX="126.0" layoutY="21.0" startX="76.0" stroke="#2980b9" />
+                              <Line endX="284.0" layoutX="126.0" layoutY="52.0" startX="76.0" stroke="#2980b9" />
+                              <Text fill="#2980b9" layoutX="276.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dépôt" wrappingWidth="61.20001220703125">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="187.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                              <Button layoutX="301.0" layoutY="58.0" mnemonicParsing="false" text="Chercher" />
-                              <Button layoutX="282.0" layoutY="242.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                              <TextField fx:id="withdrawAmountTextField" layoutX="187.0" layoutY="194.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
-                              <PasswordField fx:id="withdrawPinVerification" layoutX="108.0" layoutY="58.0" prefHeight="26.0" prefWidth="177.0" promptText="Numéro du compte à créditer" styleClass="textFields" />
+                              <Button layoutX="384.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                              <Button layoutX="502.0" layoutY="76.0" mnemonicParsing="false" text="Chercher" />
+                              <Button layoutX="483.0" layoutY="324.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                              <TextField fx:id="withdrawAmountTextField" layoutX="384.0" layoutY="286.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
+                              <PasswordField fx:id="withdrawPinVerification" layoutX="105.0" layoutY="76.0" prefHeight="26.0" prefWidth="389.0" promptText="Numéro du compte à créditer" styleClass="textFields" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -60,22 +60,19 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="402.0">
-                                 <children>
-                                    <Line endX="284.0" layoutX="16.0" layoutY="14.0" startX="76.0" stroke="#2980b9" />
-                                    <Line endX="284.0" layoutX="16.0" layoutY="45.0" startX="76.0" stroke="#2980b9" />
-                                    <Text fill="#2980b9" layoutX="166.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retrait" wrappingWidth="61.20001220703125">
-                                       <font>
-                                          <Font size="21.0" />
-                                       </font>
-                                    </Text>
-                                    <Button layoutX="187.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button layoutX="301.0" layoutY="58.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button layoutX="282.0" layoutY="242.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="withdrawAmountTextField1" layoutX="187.0" layoutY="194.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
-                                    <PasswordField fx:id="withdrawPinVerification1" layoutX="108.0" layoutY="58.0" prefHeight="26.0" prefWidth="177.0" promptText="Numéro du compte à débiter" styleClass="textFields" />
-                                 </children>
-                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="600.0" />
+                              <Line endX="284.0" layoutX="129.0" layoutY="25.0" startX="76.0" stroke="#2980b9" />
+                              <Line endX="284.0" layoutX="129.0" layoutY="56.0" startX="76.0" stroke="#2980b9" />
+                              <Text fill="#2980b9" layoutX="279.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retrait" wrappingWidth="61.20001220703125">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Text>
+                              <Button layoutX="387.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                              <Button layoutX="505.0" layoutY="80.0" mnemonicParsing="false" text="Chercher" />
+                              <Button layoutX="486.0" layoutY="328.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                              <TextField fx:id="withdrawAmountTextField1" layoutX="387.0" layoutY="290.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
+                              <PasswordField fx:id="withdrawPinVerification1" layoutX="108.0" layoutY="80.0" prefHeight="26.0" prefWidth="389.0" promptText="Numéro du compte à débiter" styleClass="textFields" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -84,23 +81,23 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="402.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="600.0">
                                  <children>
-                                    <Line endX="284.0" layoutX="16.0" layoutY="14.0" startX="76.0" stroke="#2980b9" />
-                                    <Line endX="284.0" layoutX="16.0" layoutY="45.0" startX="76.0" stroke="#2980b9" />
-                                    <Text fill="#2980b9" layoutX="156.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virement" wrappingWidth="90.00006103515625">
-                                       <font>
-                                          <Font size="21.0" />
-                                       </font>
-                                    </Text>
-                                    <Button layoutX="187.0" layoutY="255.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button layoutX="305.0" layoutY="89.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button layoutX="286.0" layoutY="255.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="withdrawAmountTextField11" layoutX="187.0" layoutY="221.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à virer" styleClass="textFields" />
-                                    <PasswordField fx:id="withdrawPinVerification11" layoutX="17.0" layoutY="56.0" prefHeight="26.0" prefWidth="169.0" promptText="Numéro du compte à débiter" styleClass="textFields" />
-                                    <PasswordField fx:id="withdrawPinVerification111" layoutX="201.0" layoutY="56.0" prefHeight="26.0" prefWidth="169.0" promptText="Numéro du compte à débiter" styleClass="textFields" />
+                                    <PasswordField fx:id="withdrawPinVerification21" layoutX="14.0" layoutY="80.0" prefHeight="26.0" prefWidth="235.0" promptText="Numéro du compte à créditer" styleClass="textFields" />
                                  </children>
                               </AnchorPane>
+                              <Line endX="284.0" layoutX="129.0" layoutY="25.0" startX="76.0" stroke="#2980b9" />
+                              <Line endX="284.0" layoutX="129.0" layoutY="56.0" startX="76.0" stroke="#2980b9" />
+                              <Text fill="#2980b9" layoutX="279.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dépôt" wrappingWidth="61.20001220703125">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Text>
+                              <Button layoutX="387.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                              <Button layoutX="505.0" layoutY="80.0" mnemonicParsing="false" text="Chercher" />
+                              <Button layoutX="486.0" layoutY="328.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                              <TextField fx:id="withdrawAmountTextField2" layoutX="387.0" layoutY="290.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à virer" styleClass="textFields" />
+                              <PasswordField fx:id="withdrawPinVerification2" layoutX="263.0" layoutY="80.0" prefHeight="26.0" prefWidth="235.0" promptText="Numéro du compte à créditer" styleClass="textFields" />
                            </children>
                         </AnchorPane>
                     </content>

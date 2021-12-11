@@ -19,8 +19,10 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-    }
+        DB db = new DB();
+        db.connect();
 
+    }
 
 
     public static void main(String[] args) {
