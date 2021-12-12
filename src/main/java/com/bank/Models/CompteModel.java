@@ -8,7 +8,6 @@ public class CompteModel {
     static long numit = 1000000000;
     private long num_c;
     private TypeCompte type_c;
-    private Date date_c;
     private float solde_c;
     private float frais;
     private boolean etat;
@@ -21,25 +20,23 @@ public class CompteModel {
         this.etat = true;
         this.num_c = numit++;
         this.type_c = type_c;
-        this.date_c = date_c;
         this.solde_c = 0;
         this.listeTransactions = new ArrayList<>();
-        if(type_c == TypeCompte.Epargne)
+        if(type_c == TypeCompte.EPARGNE)
             this.frais = (float) 0.15;
-        else if(type_c == TypeCompte.Courant)
-            this.frais = 30;
+        else if(type_c == TypeCompte.COURANT)
+            this.frais = (float) 0.30;
     }
-    public CompteModel( TypeCompte type_c, Date date_c, float x) {
+    public CompteModel( TypeCompte type_c,  float x) {
         this.etat = true;
         this.num_c = numit++;
         this.type_c = type_c;
-        this.date_c = date_c;
         this.solde_c = x;
         this.listeTransactions = new ArrayList<>();
-        if(type_c == TypeCompte.Epargne)
+        if(type_c == TypeCompte.EPARGNE)
             this.frais = (float) 0.15;
-        else if(type_c == TypeCompte.Courant)
-            this.frais = 30;
+        else if(type_c == TypeCompte.COURANT)
+            this.frais = (float) 0.30;
     }
 
     public long getNum_c() {
@@ -50,9 +47,6 @@ public class CompteModel {
         return type_c;
     }
 
-    public Date getDate_c() {
-        return date_c;
-    }
 
     public float getSolde_c() {
         return solde_c;

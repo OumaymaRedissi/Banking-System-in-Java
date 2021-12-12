@@ -9,4 +9,7 @@ module com.example.bank {
     exports com.bank;
     exports com.bank.Controllers;
     opens com.bank.Controllers to javafx.fxml;
+    exports com.bank.Models;
+    opens com.bank.Models to javafx.fxml;
+
 }

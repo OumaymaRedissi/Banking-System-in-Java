@@ -58,6 +58,7 @@ public class sidebarController implements Initializable {
             URL url = new File("src/main/resources/com/bank/Views/"+page+".fxml").toURI().toURL();
             root = FXMLLoader.load(url);
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
