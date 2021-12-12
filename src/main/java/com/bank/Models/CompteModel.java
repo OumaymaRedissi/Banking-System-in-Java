@@ -16,7 +16,9 @@ public class CompteModel {
 
 
 
-    public CompteModel( TypeCompte type_c, Date date_c) {
+    public CompteModel(){}
+
+    public CompteModel( TypeCompte type_c) {
         this.etat = true;
         this.num_c = numit++;
         this.type_c = type_c;
@@ -69,5 +71,37 @@ public class CompteModel {
     public void virerVers(CompteModel cb, double x){
         cb.Depot(x);
         Retrait(x);
+    }
+
+    public static void setNumit(long numit) {
+        CompteModel.numit = numit;
+    }
+
+    public void setNum_c(long num_c) {
+        this.num_c = num_c;
+    }
+
+    public void setType_c(TypeCompte type_c) {
+        this.type_c = type_c;
+    }
+
+    public void setSolde_c(float solde_c) {
+        this.solde_c = solde_c;
+    }
+
+    public void setFrais(float frais) {
+        this.frais = frais;
+    }
+
+    public void setEtat(boolean etat) {
+        this.etat = etat;
+    }
+
+    public void setProp(ClientModel prop) {
+        this.prop = prop;
+    }
+
+    public void setListeTransactions(ArrayList<TransactionModel> listeTransactions) {
+        this.listeTransactions = listeTransactions;
     }
 }

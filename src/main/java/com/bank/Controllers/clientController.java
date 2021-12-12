@@ -50,6 +50,9 @@ public class clientController {
     @FXML
     private TableView<ClientModel> tv_clients;
     @FXML
+    private TextField tf_ci;
+
+    @FXML
     private TextField tf_adr;
 
     @FXML
@@ -86,7 +89,6 @@ public class clientController {
     private TextField tf_sel_tel;
 
     ClientModel clt;
-    static long idit = 36;
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pstmt = null;
@@ -102,6 +104,7 @@ public class clientController {
             conn = db.getConnection();
             pst = conn.prepareStatement("select * from clients");
             ResultSet rs = pst.executeQuery();
+            tv_clients.getItems().clear();
 
 
             while (rs.next()) {
@@ -129,13 +132,12 @@ public class clientController {
     @FXML
     public void register(javafx.scene.input.MouseEvent event) {
 
-        idit=idit+1;
         clt = new ClientModel();
 
         ZoneId defaultZoneId = ZoneId.systemDefault();
         Date date1 = Date.from(tf_date.getValue().atStartOfDay(defaultZoneId).toInstant());
         //String nomPrenom, Date date_n, String tel, String email, String adr
-        clt.setId_clt(idit);
+        clt.setId_clt(Long.parseLong(tf_ci.getText()));
         clt.setNomPrenom(tf_np.getText());
         clt.setDate_n(date1);
         clt.setTel(tf_tel.getText());
@@ -165,26 +167,6 @@ public class clientController {
             pst = conn.prepareStatement("select * from clients where id_clt = (select max(id_clt) from clients) ");
             ResultSet rs = pst.executeQuery();
 
-            /*if(rs.next()){
-                System.out.println("......hahalllllllllllllllllllllllllllllllllllllllllllllllhhahah.....");
-                //lavel.setText("Register Sucessfully.");
-                tc_id.setCellValueFactory(new PropertyValueFactory<ClientModel, Long>("id_clt"));
-                tc_dn.setCellValueFactory(new PropertyValueFactory<ClientModel, LocalDate>("date_n"));
-                tc_em.setCellValueFactory(new PropertyValueFactory<ClientModel, String>("email"));
-                tc_np.setCellValueFactory(new PropertyValueFactory<ClientModel, String>("nomPrenom"));
-                tc_tel.setCellValueFactory(new PropertyValueFactory<ClientModel, String>("tel"));
-                tc_adr.setCellValueFactory(new PropertyValueFactory<ClientModel, String>("adr"));
-                ObservableList<ClientModel> data = FXCollections.observableArrayList(
-                        new ClientModel(Long.parseLong(rs.getString("id_clt")),
-                                rs.getString("nomPrenom"),
-                                rs.getDate("date_n"),
-                                rs.getString("tel"),
-                                rs.getString("email"),
-                                rs.getString("adr")));
-                tv_clients.getItems().addAll(data);
-                System.out.println("......hahahhatgrerfzdhah.....");
-
-            }*/
         } catch (SQLException e) {
             System.out.println("......ntStackTracehahahhahah.....");
             e.printStackTrace();
@@ -197,6 +179,7 @@ public class clientController {
     public void load_ligne() {
         Connection conn;
         PreparedStatement pst;
+        tv_clients.getItems().clear();
 
         try {
             DB db = new DB();
@@ -254,8 +237,9 @@ public class clientController {
             String sql="delete from clients where id_clt=?";
             pstmt=conn.prepareStatement(sql);
             pstmt.setLong(1,Long.parseLong(labelid.getText()));
-            pstmt.executeUpdate();
-            if(rs!=null){
+            //pstmt.executeUpdate();
+
+            if(pstmt.executeUpdate()!=0){
                 label.setText("Client supprimé avec succés ");
             }else{
 
@@ -287,7 +271,6 @@ public class clientController {
         clt.setTel(tf_sel_tel.getText());
         clt.setEmail(tf_sel_email.getText());
         clt.setAdr(tf_sel_adr.getText());
-
         try {
             DB db = new DB();
             conn = db.getConnection();
@@ -319,6 +302,8 @@ public class clientController {
             pst = conn.prepareStatement("SELECT * FROM clients WHERE id_clt = ?");
             pst.setLong(1, cin);
             ResultSet rs = pst.executeQuery();
+            tv_clients.getItems().clear();
+
 
             while (rs.next()) {
                 tc_id.setCellValueFactory(new PropertyValueFactory<ClientModel, Long>("id_clt"));
@@ -340,6 +325,7 @@ public class clientController {
         } catch (SQLException ex) {
         }
     }
+
 }
 
     /*@Override
