@@ -46,7 +46,7 @@
          </font>
       </Button>
       <TextField fx:id="tf_cin" layoutX="309.0" layoutY="60.0" prefHeight="25.0" prefWidth="217.0" promptText="Enter CIN à rechercher" />
-      <Label fx:id="label" layoutX="22.0" layoutY="405.0" prefHeight="17.0" prefWidth="277.0" textFill="#df1a1a">
+      <Label fx:id="label" layoutX="22.0" layoutY="405.0" prefHeight="17.0" prefWidth="277.0" textFill="#dddcdf">
          <font>
             <Font size="16.0" />
          </font>

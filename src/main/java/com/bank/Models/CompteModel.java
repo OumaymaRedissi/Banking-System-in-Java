@@ -9,12 +9,20 @@ public class CompteModel {
     private long num_c;
     private TypeCompte type_c;
     private float solde_c;
-    private float frais;
+    private long id_c;
     private boolean etat;
+
     private ClientModel prop;
     private ArrayList<TransactionModel> listeTransactions;
+    private float frais;
 
-
+    public CompteModel(long num_c, TypeCompte type_c, float solde_c, long id_c, boolean etat) {
+        this.num_c = num_c;
+        this.type_c = type_c;
+        this.solde_c = solde_c;
+        this.id_c = id_c;
+        this.etat = etat;
+    }
 
     public CompteModel(){}
 
@@ -103,5 +111,13 @@ public class CompteModel {
 
     public void setListeTransactions(ArrayList<TransactionModel> listeTransactions) {
         this.listeTransactions = listeTransactions;
+    }
+
+    public long getId_c() {
+        return id_c;
+    }
+
+    public void setId_c(long id_c) {
+        this.id_c = id_c;
     }
 }

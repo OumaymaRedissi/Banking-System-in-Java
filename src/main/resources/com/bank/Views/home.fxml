@@ -5,22 +5,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.homeController">
+<Pane prefHeight="478.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.homeController">
    <children>
-      <Label layoutX="211.0" layoutY="112.0" prefHeight="99.0" prefWidth="177.0" text="R &amp; M" textAlignment="CENTER" textFill="#2980b9">
+      <Label layoutX="212.0" layoutY="79.0" prefHeight="119.0" prefWidth="263.0" text="R &amp; M" textAlignment="CENTER" textFill="#2980b9">
          <font>
-            <Font name="Roboto" size="60.0" />
+            <Font size="81.0" />
          </font>
       </Label>
-      <Label layoutX="139.0" layoutY="212.0" prefHeight="59.0" prefWidth="321.0" text="Redissi &amp; Mezgar Banking" textAlignment="CENTER" textFill="#2980b9">
+      <Label layoutX="141.0" layoutY="210.0" prefHeight="59.0" prefWidth="430.0" text="Redissi &amp; Mezgar Banking" textAlignment="CENTER" textFill="#2980b9">
          <font>
-            <Font size="27.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Separator layoutX="164.0" layoutY="209.0" prefHeight="2.0" prefWidth="246.0" style="-fx-background-color: #2980b9;" />
-      <Label layoutX="337.0" layoutY="271.0" prefHeight="18.0" prefWidth="124.0" text="The right way to go." textFill="#2980b9">
+      <Separator layoutX="150.0" layoutY="194.0" prefHeight="8.0" prefWidth="387.0" style="-fx-background-color: #2980b9;" />
+      <Label layoutX="362.0" layoutY="269.0" prefHeight="23.0" prefWidth="198.0" text="The right way to go." textFill="#2980b9">
          <font>
-            <Font name="Webdings" size="12.0" />
+            <Font name="Webdings" size="21.0" />
          </font>
       </Label>
    </children>

@@ -219,7 +219,7 @@ public class clientController {
             root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setTitle("Ajouter client");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root));
             stage.show();
             stage.setOnCloseRequest(e -> load_ligne());
 
