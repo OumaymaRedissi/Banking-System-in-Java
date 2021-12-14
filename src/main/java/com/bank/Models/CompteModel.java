@@ -24,7 +24,16 @@ public class CompteModel {
         this.etat = etat;
     }
 
+    public CompteModel(long num_c, TypeCompte type_c, float solde_c, long id_c) {
+        this.num_c = num_c;
+        this.type_c = type_c;
+        this.solde_c = solde_c;
+        this.id_c = id_c;
+
+    }
+
     public CompteModel(){}
+
 
     public CompteModel( TypeCompte type_c) {
         this.etat = true;
@@ -49,6 +58,22 @@ public class CompteModel {
             this.frais = (float) 0.30;
     }
 
+
+    public void Depot(double x){
+
+        solde_c+=x;
+    }
+    public void Retrait(double x){
+
+        solde_c-=x;
+    }
+    public void virerVers(CompteModel cb, double x){
+
+        cb.Depot(x);
+        Retrait(x);
+    }
+
+
     public long getNum_c() {
         return num_c;
     }
@@ -70,16 +95,9 @@ public class CompteModel {
         return etat;
     }
 
-    public void Depot(double x){
-        solde_c+=x;
-    }
-    public void Retrait(double x){
-        solde_c-=x;
-    }
-    public void virerVers(CompteModel cb, double x){
-        cb.Depot(x);
-        Retrait(x);
-    }
+
+
+
 
     public static void setNumit(long numit) {
         CompteModel.numit = numit;

@@ -165,11 +165,8 @@ public class compteController implements Initializable {
 
 
         } catch (SQLException e) {
-            System.out.println("......ntStackTracehahahhahah.....");
             e.printStackTrace();
         }
-
-        System.out.println("......hahahhahah.....");
     }
 
     @FXML
@@ -352,17 +349,6 @@ public class compteController implements Initializable {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

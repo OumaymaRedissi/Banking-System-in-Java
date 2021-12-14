@@ -9,15 +9,13 @@ public class AgenceModel {
     private String nomChef;
     private String tel;
     private String adress;
-    private Devise dev;
     private ArrayList<CompteModel> listeCompte;
 
-    public AgenceModel( String nomChef, String tel, String email, String adress, Devise dev) {
+    public AgenceModel( String nomChef, String tel, String email, String adress) {
         this.code = codeit++;
         this.nomChef = nomChef;
         this.tel = tel;
         this.adress = adress;
-        this.dev = dev;
         this.listeCompte = new ArrayList<>();
     }
 
@@ -37,9 +35,6 @@ public class AgenceModel {
         return adress;
     }
 
-    public Devise getDev() {
-        return dev;
-    }
 
     public ArrayList<CompteModel> getListeCompte(){return listeCompte;}
 

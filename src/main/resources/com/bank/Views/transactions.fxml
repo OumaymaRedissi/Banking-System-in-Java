@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -32,14 +33,51 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="700.0">
                                  <children>
-                                    <TableView layoutX="110.0" layoutY="65.0" prefHeight="226.0" prefWidth="480.0">
+                                    <TableView fx:id="tv_depot" layoutX="129.0" layoutY="14.0" prefHeight="102.0" prefWidth="441.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Numéro" />
-                                        <TableColumn prefWidth="75.0" text="Type" />
-                                          <TableColumn prefWidth="75.0" text="Date" />
-                                          <TableColumn prefWidth="75.0" text="Montant" />
+                                        <TableColumn fx:id="tc_dep_op" prefWidth="67.20001983642578" text="Numéro" />
+                                          <TableColumn fx:id="tc_dep_date" prefWidth="89.5999755859375" text="Date" />
+                                          <TableColumn fx:id="tc_dep_mnt" prefWidth="156.79998779296875" text="Montant" />
+                                          <TableColumn fx:id="tc_dep_em" prefWidth="123.19998168945312" text="N° compte" />
                                       </columns>
                                     </TableView>
+                                    <Button fx:id="btn_load" layoutX="604.0" layoutY="13.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: #2980b9;" text="Load" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <TableView fx:id="tv_retrait" layoutX="128.0" layoutY="127.0" prefHeight="102.0" prefWidth="444.0">
+                                       <columns>
+                                          <TableColumn fx:id="tc_ret_op" prefWidth="67.20001983642578" text="Numéro" />
+                                          <TableColumn fx:id="tc_ret_date" prefWidth="89.5999755859375" text="Date" />
+                                          <TableColumn fx:id="tc_ret_mnt" prefWidth="157.5999755859375" text="Montant" />
+                                          <TableColumn fx:id="tc_ret_em" prefWidth="125.60000610351562" text="N° compte" />
+                                       </columns>
+                                    </TableView>
+                                    <TableView fx:id="tv_virement" layoutX="123.0" layoutY="238.0" prefHeight="102.0" prefWidth="454.0">
+                                       <columns>
+                                          <TableColumn fx:id="tc_vir_op" prefWidth="67.20001983642578" text="Numéro" />
+                                          <TableColumn fx:id="tc_vir_date" prefWidth="89.5999755859375" text="Date" />
+                                          <TableColumn fx:id="tc_vir_mnt" prefWidth="84.79998779296875" text="Montant" />
+                                          <TableColumn fx:id="tc_vir_em" prefWidth="94.39996337890625" text="Emetteur" />
+                                          <TableColumn fx:id="tc_vir_ben" prefWidth="114.39999389648438" text="Bénéficiaire" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="52.0" layoutY="15.0" text="Dépôt" textFill="#2980b9">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="50.0" layoutY="127.0" text="Retrait" textFill="#2980b9">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="40.0" layoutY="238.0" text="Virement" textFill="#2980b9">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                            </content>
@@ -48,69 +86,314 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="358.0">
                                  <children>
-                                    <Line endX="284.0" layoutX="126.0" layoutY="21.0" startX="76.0" stroke="#2980b9" />
-                                    <Line endX="284.0" layoutX="126.0" layoutY="52.0" startX="76.0" stroke="#2980b9" />
-                                    <Text fill="#2980b9" layoutX="276.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dépôt" wrappingWidth="61.20001220703125">
+                                    <Line endX="542.0" endY="-4.76837158203125E-6" layoutX="158.0" layoutY="15.0" startX="-203.60000610351562" startY="-4.76837158203125E-6" stroke="#2980b9" />
+                                    <Line endX="659.5999755859375" endY="-3.814697265625E-6" layoutX="158.0" layoutY="46.0" startX="-182.0" startY="-3.814697265625E-6" stroke="#2980b9" />
+                                    <Text fill="#2980b9" layoutX="308.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dépôt" wrappingWidth="61.20001220703125">
                                        <font>
-                                          <Font size="21.0" />
+                                          <Font name="System Bold" size="21.0" />
                                        </font>
                                     </Text>
-                                    <Button layoutX="384.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button layoutX="502.0" layoutY="76.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button layoutX="483.0" layoutY="324.0" mnemonicParsing="false" onAction="#withdrawMoney" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="withdrawAmountTextField" layoutX="384.0" layoutY="286.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
-                                    <TextField layoutX="199.0" layoutY="76.0" prefHeight="26.0" prefWidth="217.0" promptText="N° Compte à créditer" />
+                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                                    <Button fx:id="btn_search1" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf1" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                                    <TextField fx:id="tf_mnt1" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
+                                    <TextField fx:id="tf_num1" layoutX="234.0" layoutY="60.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à créditer" />
+                                    <HBox layoutX="130.0" layoutY="91.0" prefHeight="175.0" prefWidth="438.0" style="-fx-background-color: #ffffff;">
+                                       <children>
+                                          <VBox prefHeight="130.0" prefWidth="78.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="N°       :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Type   :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="CIN     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Etat     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Solde  :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <Region prefHeight="175.0" prefWidth="112.0" />
+                                          <VBox prefHeight="175.0" prefWidth="191.0">
+                                             <children>
+                                                <Label fx:id="lab_id1" prefHeight="34.0" prefWidth="226.0" text="N°       :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_ty1" prefHeight="34.0" prefWidth="202.0" text="Type   :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_cin1" prefHeight="34.0" prefWidth="245.0" text="CIN     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_et1" prefHeight="34.0" prefWidth="200.0" text="Etat     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_sol1" prefHeight="34.0" prefWidth="210.0" text="Solde  :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
                         <Tab text="Retrait">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="358.0">
                                  <children>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="362.0" prefWidth="700.0">
-                                       <children>
-                                          <TextField layoutX="204.0" layoutY="79.0" prefHeight="26.0" prefWidth="210.0" promptText="N° Compte à débiter" />
-                                          <Button layoutX="428.0" layoutY="79.0" mnemonicParsing="false" text="Chercher" />
-                                          <Button layoutX="444.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                          <Button layoutX="543.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                          <TextField layoutX="444.0" layoutY="268.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
-                                       </children></AnchorPane>
-                                    <Line endX="284.0" layoutX="129.0" layoutY="25.0" startX="76.0" stroke="#2980b9" />
-                                    <Line endX="284.0" layoutX="129.0" layoutY="56.0" startX="76.0" stroke="#2980b9" />
-                                    <Text fill="#2980b9" layoutX="279.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retrait" wrappingWidth="61.20001220703125">
+                                    <Line endX="542.0" endY="-4.76837158203125E-6" layoutX="158.0" layoutY="15.0" startX="-203.60000610351562" startY="-4.76837158203125E-6" stroke="#2980b9" />
+                                    <Line endX="659.5999755859375" endY="-3.814697265625E-6" layoutX="158.0" layoutY="46.0" startX="-182.0" startY="-3.814697265625E-6" stroke="#2980b9" />
+                                    <Text fill="#2980b9" layoutX="314.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retrait" wrappingWidth="72.4000244140625">
                                        <font>
-                                          <Font size="21.0" />
+                                          <Font name="System Bold" size="21.0" />
                                        </font>
                                     </Text>
+                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                                    <Button fx:id="btn_search2" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf2" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                                    <TextField fx:id="tf_mnt2" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
+                                    <TextField fx:id="tf_num2" layoutX="234.0" layoutY="60.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à débiter" />
+                                    <HBox layoutX="131.0" layoutY="91.0" prefHeight="175.0" prefWidth="438.0" style="-fx-background-color: #ffffff;">
+                                       <children>
+                                          <VBox prefHeight="130.0" prefWidth="78.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="N°       :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Type   :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="CIN     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Etat     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Solde  :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <Region prefHeight="175.0" prefWidth="112.0" />
+                                          <VBox prefHeight="175.0" prefWidth="191.0">
+                                             <children>
+                                                <Label fx:id="lab_id2" prefHeight="34.0" prefWidth="199.0" text="N°       :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_ty2" prefHeight="34.0" prefWidth="200.0" text="Type   :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_cin2" prefHeight="34.0" prefWidth="203.0" text="CIN     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_et2" prefHeight="34.0" prefWidth="198.0" text="Etat     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_sol2" prefHeight="34.0" prefWidth="195.0" text="Solde  :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
                         <Tab text="Virement">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="358.0">
                                  <children>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="700.0">
+                                    <Line endX="542.0" endY="-4.76837158203125E-6" layoutX="158.0" layoutY="15.0" startX="-203.60000610351562" startY="-4.76837158203125E-6" stroke="#2980b9" />
+                                    <Line endX="659.5999755859375" endY="-3.814697265625E-6" layoutX="158.0" layoutY="46.0" startX="-182.0" startY="-3.814697265625E-6" stroke="#2980b9" />
+                                    <Text fill="#2980b9" layoutX="301.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virement" wrappingWidth="98.800048828125">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Text>
+                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
+                                    <Button fx:id="btn_search3" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf3" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                                    <TextField fx:id="tf_mnt3" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à virer" styleClass="textFields" />
+                                    <TextField fx:id="tf_num4" layoutX="301.0" layoutY="60.0" prefHeight="26.0" prefWidth="298.0" promptText="N° Compte à débiter" />
+                                    <HBox layoutX="39.0" layoutY="97.0" prefHeight="175.0" prefWidth="272.0" style="-fx-background-color: #ffffff;">
                                        <children>
-                                          <Text fill="#2980b9" layoutX="263.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virement" wrappingWidth="86.800048828125">
-                                             <font>
-                                                <Font size="21.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField layoutX="51.0" layoutY="74.0" prefHeight="26.0" prefWidth="197.0" promptText="N° Compte à débiter" styleClass="textFields" />
-                                          <TextField layoutX="397.0" layoutY="300.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à virer" styleClass="textFields" />
-                                          <TextField layoutX="337.0" layoutY="74.0" prefHeight="26.0" prefWidth="197.0" promptText="N° Compte à créditer" styleClass="textFields" />
-                                          <Button layoutX="579.0" layoutY="77.0" mnemonicParsing="false" text="Chercher" />
+                                          <VBox prefHeight="130.0" prefWidth="78.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="N°       :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Type   :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="CIN     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Etat     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Solde  :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <Region prefHeight="175.0" prefWidth="30.0" />
+                                          <VBox prefHeight="175.0" prefWidth="157.0">
+                                             <children>
+                                                <Label fx:id="lab_id3" prefHeight="34.0" prefWidth="186.0" text="N°       :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_ty3" prefHeight="34.0" prefWidth="179.0" text="Type   :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_cin3" prefHeight="34.0" prefWidth="217.0" text="CIN     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_et3" prefHeight="34.0" prefWidth="187.0" text="Etat     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_sol3" prefHeight="34.0" prefWidth="223.0" text="Solde  :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </AnchorPane>
-                                    <Line endX="284.0" layoutX="129.0" layoutY="25.0" startX="76.0" stroke="#2980b9" />
-                                    <Line endX="284.0" layoutX="129.0" layoutY="56.0" startX="76.0" stroke="#2980b9" />
-                                    <Button layoutX="387.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button layoutX="486.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
+                                    </HBox>
+                                    <TextField fx:id="tf_num3" layoutX="39.0" layoutY="60.0" prefHeight="26.0" prefWidth="254.0" promptText="N° Compte à créditer" />
+                                    <HBox layoutX="396.0" layoutY="91.0" prefHeight="175.0" prefWidth="272.0" style="-fx-background-color: #ffffff;">
+                                       <children>
+                                          <VBox prefHeight="130.0" prefWidth="78.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="N°       :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Type   :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="CIN     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Etat     :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="92.0" text="Solde  :" textFill="#2980b9">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <Region prefHeight="175.0" prefWidth="30.0" />
+                                          <VBox prefHeight="175.0" prefWidth="157.0">
+                                             <children>
+                                                <Label fx:id="lab_id4" prefHeight="34.0" prefWidth="172.0" text="N°       :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_ty4" prefHeight="34.0" prefWidth="218.0" text="Type   :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_cin4" prefHeight="34.0" prefWidth="175.0" text="CIN     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_et4" prefHeight="34.0" prefWidth="198.0" text="Etat     :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lab_sol4" prefHeight="34.0" prefWidth="197.0" text="Solde  :">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </AnchorPane>
-                          </content>
+                           </content>
                         </Tab>
                      </tabs>
                   </TabPane>
@@ -118,6 +401,5 @@
             </HBox>
          </children>
       </VBox>
-      <TextField layoutX="114.0" layoutY="-25.0" />
    </children>
 </Pane>

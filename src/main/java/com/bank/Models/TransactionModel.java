@@ -5,30 +5,38 @@ import java.util.Date;
 public class TransactionModel {
 
     private long num_op;
-    private TypeTransaction type_op;
     private Date date_op;
-    private float mnt_op;
+    private Double mnt_op;
+    private long num_c_em;
 
-    public TransactionModel(long num_op, TypeTransaction type_op, Date date_op, float mnt_op) {
+    public  TransactionModel(){};
+
+    public TransactionModel(long num_op, Date date_op, Double mnt_op, long num_c_em) {
         this.num_op = num_op;
-        this.type_op = type_op;
         this.date_op = date_op;
         this.mnt_op = mnt_op;
+        this.num_c_em = num_c_em;
+    }
+
+    public TransactionModel(Date date_op, Double mnt_op, long num_c_em) {
+        this.date_op = date_op;
+        this.mnt_op = mnt_op;
+        this.num_c_em = num_c_em;
+    }
+
+    public long getNum_c_em() {
+        return num_c_em;
     }
 
     public long getNum_op() {
         return num_op;
     }
 
-    public TypeTransaction getType_op() {
-        return type_op;
-    }
-
     public Date getDate_op() {
         return date_op;
     }
 
-    public float getMnt_op() {
+    public Double getMnt_op() {
         return mnt_op;
     }
 }
