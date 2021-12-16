@@ -28,6 +28,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.Button;
@@ -126,6 +127,7 @@ public class compteController implements Initializable {
             loadData();
         });
         btn_valider.setOnMouseClicked(event -> {
+            confirAjout();
             ouvrirCompte();
             loadData();
         });
@@ -218,10 +220,27 @@ public class compteController implements Initializable {
         }
     }
     @FXML
+    private void confirAjout() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ouvrir compte");
+        alert.setHeaderText("Message: ");
+        alert.setContentText("Veuillez confirmer!");
+        Optional<ButtonType> option = alert.showAndWait();
+
+        if (option.get() == null) {
+            this.label.setText("Pas de selection");
+        } else if (option.get() == ButtonType.OK) {
+            this.label.setText("Compte ouvert ");
+        } else if (option.get() == ButtonType.CANCEL) {
+            this.label.setText("Annulé");
+        } else {
+            this.label.setText("-");
+        }
+    }
+    @FXML
     private void act_desacCompte(){
 
         Connection conn;
-        PreparedStatement pst;
         cpt.setNum_c(Long.parseLong(lab_id.getText()));
         cpt.setId_c(Long.parseLong(lab_cin.getText()));
         if("Ouvert".equals(lab_et.getText()))

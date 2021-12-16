@@ -93,11 +93,13 @@
                                           <Font name="System Bold" size="21.0" />
                                        </font>
                                     </Text>
-                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button fx:id="btn_search1" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button fx:id="btn_conf1" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="tf_mnt1" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
-                                    <TextField fx:id="tf_num1" layoutX="234.0" layoutY="60.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à créditer" />
+                                    <Button fx:id="btn_search1" layoutX="578.0" layoutY="59.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf1" layoutX="578.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #2980b9;" styleClass="buttons" text="Confirmer" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <TextField fx:id="tf_mnt1" layoutX="369.0" layoutY="275.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à créditer" styleClass="textFields" />
+                                    <TextField fx:id="tf_num1" layoutX="205.0" layoutY="58.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à créditer" />
                                     <HBox layoutX="130.0" layoutY="91.0" prefHeight="175.0" prefWidth="438.0" style="-fx-background-color: #ffffff;">
                                        <children>
                                           <VBox prefHeight="130.0" prefWidth="78.0">
@@ -132,27 +134,27 @@
                                           <Region prefHeight="175.0" prefWidth="112.0" />
                                           <VBox prefHeight="175.0" prefWidth="191.0">
                                              <children>
-                                                <Label fx:id="lab_id1" prefHeight="34.0" prefWidth="226.0" text="N°       :">
+                                                <Label fx:id="lab_id1" prefHeight="34.0" prefWidth="226.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_ty1" prefHeight="34.0" prefWidth="202.0" text="Type   :">
+                                                <Label fx:id="lab_ty1" prefHeight="34.0" prefWidth="202.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_cin1" prefHeight="34.0" prefWidth="245.0" text="CIN     :">
+                                                <Label fx:id="lab_cin1" prefHeight="34.0" prefWidth="245.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_et1" prefHeight="34.0" prefWidth="200.0" text="Etat     :">
+                                                <Label fx:id="lab_et1" prefHeight="34.0" prefWidth="200.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_sol1" prefHeight="34.0" prefWidth="210.0" text="Solde  :">
+                                                <Label fx:id="lab_sol1" prefHeight="34.0" prefWidth="210.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
@@ -161,6 +163,7 @@
                                           </VBox>
                                        </children>
                                     </HBox>
+                                    <Label fx:id="lab_err1" layoutX="76.0" layoutY="279.0" textFill="#f40505" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -176,11 +179,10 @@
                                           <Font name="System Bold" size="21.0" />
                                        </font>
                                     </Text>
-                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button fx:id="btn_search2" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button fx:id="btn_conf2" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="tf_mnt2" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
-                                    <TextField fx:id="tf_num2" layoutX="234.0" layoutY="60.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à débiter" />
+                                    <Button fx:id="btn_search2" layoutX="578.0" layoutY="59.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf2" layoutX="578.0" layoutY="272.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #2980b9;" styleClass="buttons" text="Confirmer" textFill="WHITE" />
+                                    <TextField fx:id="tf_mnt2" layoutX="371.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à débiter" styleClass="textFields" />
+                                    <TextField fx:id="tf_num2" layoutX="205.0" layoutY="59.0" prefHeight="26.0" prefWidth="362.0" promptText="N° Compte à débiter" />
                                     <HBox layoutX="131.0" layoutY="91.0" prefHeight="175.0" prefWidth="438.0" style="-fx-background-color: #ffffff;">
                                        <children>
                                           <VBox prefHeight="130.0" prefWidth="78.0">
@@ -215,27 +217,27 @@
                                           <Region prefHeight="175.0" prefWidth="112.0" />
                                           <VBox prefHeight="175.0" prefWidth="191.0">
                                              <children>
-                                                <Label fx:id="lab_id2" prefHeight="34.0" prefWidth="199.0" text="N°       :">
+                                                <Label fx:id="lab_id2" prefHeight="34.0" prefWidth="199.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_ty2" prefHeight="34.0" prefWidth="200.0" text="Type   :">
+                                                <Label fx:id="lab_ty2" prefHeight="34.0" prefWidth="200.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_cin2" prefHeight="34.0" prefWidth="203.0" text="CIN     :">
+                                                <Label fx:id="lab_cin2" prefHeight="34.0" prefWidth="203.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_et2" prefHeight="34.0" prefWidth="198.0" text="Etat     :">
+                                                <Label fx:id="lab_et2" prefHeight="34.0" prefWidth="198.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_sol2" prefHeight="34.0" prefWidth="195.0" text="Solde  :">
+                                                <Label fx:id="lab_sol2" prefHeight="34.0" prefWidth="195.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
@@ -244,6 +246,7 @@
                                           </VBox>
                                        </children>
                                     </HBox>
+                                    <Label fx:id="lab_err2" layoutX="72.0" layoutY="277.0" textFill="#fa0505" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -259,12 +262,14 @@
                                           <Font name="System Bold" size="21.0" />
                                        </font>
                                     </Text>
-                                    <Button layoutX="479.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" styleClass="buttons" text="Annuler" />
-                                    <Button fx:id="btn_search3" layoutX="604.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
-                                    <Button fx:id="btn_conf3" layoutX="574.0" layoutY="311.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" styleClass="buttons" text="Confirmer" />
-                                    <TextField fx:id="tf_mnt3" layoutX="479.0" layoutY="273.0" prefHeight="26.0" prefWidth="197.0" promptText="Montant à virer" styleClass="textFields" />
-                                    <TextField fx:id="tf_num4" layoutX="301.0" layoutY="60.0" prefHeight="26.0" prefWidth="298.0" promptText="N° Compte à débiter" />
-                                    <HBox layoutX="39.0" layoutY="97.0" prefHeight="175.0" prefWidth="272.0" style="-fx-background-color: #ffffff;">
+                                    <Button fx:id="btn_search3" layoutX="624.0" layoutY="60.0" mnemonicParsing="false" text="Chercher" />
+                                    <Button fx:id="btn_conf3" layoutX="555.0" layoutY="289.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #2980b9;" styleClass="buttons" text="Confirmer" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <TextField fx:id="tf_mnt3" layoutX="362.0" layoutY="289.0" prefHeight="26.0" prefWidth="186.0" promptText="Montant à virer" styleClass="textFields" />
+                                    <TextField fx:id="tf_num4" layoutX="359.0" layoutY="60.0" prefHeight="26.0" prefWidth="264.0" promptText="N° Compte à débiter" />
+                                    <HBox layoutX="39.0" layoutY="110.0" prefHeight="162.0" prefWidth="258.0" style="-fx-background-color: #ffffff;">
                                        <children>
                                           <VBox prefHeight="130.0" prefWidth="78.0">
                                              <children>
@@ -298,27 +303,27 @@
                                           <Region prefHeight="175.0" prefWidth="30.0" />
                                           <VBox prefHeight="175.0" prefWidth="157.0">
                                              <children>
-                                                <Label fx:id="lab_id3" prefHeight="34.0" prefWidth="186.0" text="N°       :">
+                                                <Label fx:id="lab_id3" prefHeight="34.0" prefWidth="186.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_ty3" prefHeight="34.0" prefWidth="179.0" text="Type   :">
+                                                <Label fx:id="lab_ty3" prefHeight="34.0" prefWidth="179.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_cin3" prefHeight="34.0" prefWidth="217.0" text="CIN     :">
+                                                <Label fx:id="lab_cin3" prefHeight="34.0" prefWidth="217.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_et3" prefHeight="34.0" prefWidth="187.0" text="Etat     :">
+                                                <Label fx:id="lab_et3" prefHeight="34.0" prefWidth="187.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_sol3" prefHeight="34.0" prefWidth="223.0" text="Solde  :">
+                                                <Label fx:id="lab_sol3" prefHeight="34.0" prefWidth="223.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
@@ -327,8 +332,8 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <TextField fx:id="tf_num3" layoutX="39.0" layoutY="60.0" prefHeight="26.0" prefWidth="254.0" promptText="N° Compte à créditer" />
-                                    <HBox layoutX="396.0" layoutY="91.0" prefHeight="175.0" prefWidth="272.0" style="-fx-background-color: #ffffff;">
+                                    <TextField fx:id="tf_num3" layoutX="39.0" layoutY="60.0" prefHeight="26.0" prefWidth="258.0" promptText="N° Compte à créditer" />
+                                    <HBox layoutX="361.0" layoutY="110.0" prefHeight="156.0" prefWidth="263.0" style="-fx-background-color: #ffffff;">
                                        <children>
                                           <VBox prefHeight="130.0" prefWidth="78.0">
                                              <children>
@@ -362,27 +367,27 @@
                                           <Region prefHeight="175.0" prefWidth="30.0" />
                                           <VBox prefHeight="175.0" prefWidth="157.0">
                                              <children>
-                                                <Label fx:id="lab_id4" prefHeight="34.0" prefWidth="172.0" text="N°       :">
+                                                <Label fx:id="lab_id4" prefHeight="34.0" prefWidth="172.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_ty4" prefHeight="34.0" prefWidth="218.0" text="Type   :">
+                                                <Label fx:id="lab_ty4" prefHeight="34.0" prefWidth="218.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_cin4" prefHeight="34.0" prefWidth="175.0" text="CIN     :">
+                                                <Label fx:id="lab_cin4" prefHeight="34.0" prefWidth="175.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_et4" prefHeight="34.0" prefWidth="198.0" text="Etat     :">
+                                                <Label fx:id="lab_et4" prefHeight="34.0" prefWidth="198.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="lab_sol4" prefHeight="34.0" prefWidth="197.0" text="Solde  :">
+                                                <Label fx:id="lab_sol4" prefHeight="34.0" prefWidth="197.0">
                                                    <font>
                                                       <Font size="23.0" />
                                                    </font>
@@ -391,6 +396,9 @@
                                           </VBox>
                                        </children>
                                     </HBox>
+                                    <Label layoutX="39.0" layoutY="86.0" text="Emetteur" textFill="#2980b9" />
+                                    <Label layoutX="361.0" layoutY="86.0" text="Bénéficiaire" textFill="#2980b9" />
+                                    <Label fx:id="lab_err3" layoutX="49.0" layoutY="302.0" textFill="RED" />
                                  </children>
                               </AnchorPane>
                            </content>

@@ -25,6 +25,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Optional;
 
 import javafx.scene.control.Button;
 
@@ -127,11 +128,28 @@ public class clientController {
             e.printStackTrace();
         }
     }
+    private void showAlertWithHeaderText() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("AJOUT CLIENT");
+        alert.setHeaderText("Message: ");
+        alert.setContentText("Veuillez confirmer!");
+        Optional<ButtonType> option = alert.showAndWait();
+
+        if (option.get() == null) {
+            this.label.setText("Pas de selection");
+        } else if (option.get() == ButtonType.OK) {
+            this.label.setText("Client ajouté ");
+        } else if (option.get() == ButtonType.CANCEL) {
+            this.label.setText("Annulé");
+        } else {
+            this.label.setText("-");
+        }
+
+    }
 
 
     @FXML
     public void register(javafx.scene.input.MouseEvent event) {
-
         clt = new ClientModel();
 
         ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -161,18 +179,18 @@ public class clientController {
             pstmt.setString(4, clt.getTel());
             pstmt.setString(5, clt.getEmail());
             pstmt.setString(6, clt.getAdr());
-            System.out.println("......kamalt....");
             pstmt.executeUpdate();
             PreparedStatement pst;
             pst = conn.prepareStatement("select * from clients where id_clt = (select max(id_clt) from clients) ");
             ResultSet rs = pst.executeQuery();
 
         } catch (SQLException e) {
-            System.out.println("......ntStackTracehahahhahah.....");
+            System.out.println("FAILED");
             e.printStackTrace();
         }
 
-        System.out.println("......hahahhahah.....");
+        System.out.println("SUCCESS");
+
     }
 
     @FXML
@@ -231,6 +249,20 @@ public class clientController {
 
 
     public void deleteClient(ActionEvent ae){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("SUPPRIMER CLIENT");
+        alert.setHeaderText("Resultat:");
+        alert.setContentText("Veuillez confirmer la suppression!");
+        Optional<ButtonType> option = alert.showAndWait();
+        if (option.get() == null) {
+            this.label.setText("Pas de selection");
+        } else if (option.get() == ButtonType.OK) {
+            this.label.setText("Client supprimé ");
+        } else if (option.get() == ButtonType.CANCEL) {
+            this.label.setText("Annulé");
+        } else {
+            this.label.setText("-");
+        }
         try {
             DB db = new DB();
             conn = db.getConnection();
@@ -248,6 +280,8 @@ public class clientController {
         }catch(Exception e){
             e.printStackTrace();
         }
+
+
     }
 
     @FXML

@@ -40,7 +40,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_num" layoutX="260.0" layoutY="67.0" prefHeight="25.0" prefWidth="112.0" promptText="N° compte" />
       <TextField fx:id="tf_cin" layoutX="385.0" layoutY="67.0" onInputMethodTextChanged="#searchCINCompte" prefHeight="25.0" prefWidth="110.0" promptText="CIN" />
       <Label fx:id="label" layoutX="22.0" layoutY="405.0" prefHeight="17.0" prefWidth="277.0" textFill="#df1a1a">
          <font>
@@ -61,13 +60,12 @@
          <children>
             <TextField fx:id="tf_ci_add" prefHeight="26.0" prefWidth="122.0" promptText="CIN" />
             <ComboBox fx:id="cb_type" prefHeight="26.0" prefWidth="112.0" promptText="Type compte" />
-            <Region prefHeight="30.0" prefWidth="161.0" />
+            <Region prefHeight="30.0" prefWidth="222.0" />
             <Button fx:id="btn_valider" mnemonicParsing="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #2980b9;" text="Valider" textFill="#f7f6f6">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-text-fill: #d40707; -fx-background-color: transparent;" text="Annuler" />
          </children>
       </HBox>
       <Separator layoutX="-4.0" layoutY="391.0" prefHeight="3.0" prefWidth="623.0" style="-fx-background-color: #2980b9;" />

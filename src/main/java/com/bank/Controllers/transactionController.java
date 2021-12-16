@@ -16,8 +16,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -93,6 +91,15 @@ public class transactionController implements Initializable {
 
     @FXML
     private Button btn_search3;
+
+    @FXML
+    private Label lab_err1;
+
+    @FXML
+    private Label lab_err2;
+
+    @FXML
+    private Label lab_err3;
 
     @FXML
     private Label lab_cin1;
@@ -428,6 +435,7 @@ public class transactionController implements Initializable {
     @FXML
     private void updateCompteDepot() {
 
+
         Connection conn;
         PreparedStatement pst;
         CompteModel cpt = new CompteModel(Long.parseLong(lab_id1.getText()),
@@ -436,48 +444,50 @@ public class transactionController implements Initializable {
                 Long.parseLong(lab_cin1.getText())
         );
 
-        if ("Ouvert".equals(lab_et1.getText()))
-            cpt.setEtat(true);
-        else
+        if ("Cloturé".equals(lab_et1.getText())) {
             cpt.setEtat(false);
+            lab_err1.setText("Compte cloturé - transaction impossible");
+        } else {
+            cpt.setEtat(true);
 
-        Double montant = Double.valueOf(tf_mnt1.getText());
-        cpt.Depot(montant);
+            Double montant = Double.valueOf(tf_mnt1.getText());
+            cpt.Depot(montant);
 
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
-            pst = conn.prepareStatement(sql);
-            pst.setDouble(1, cpt.getSolde_c());
-            pst.setLong(2, cpt.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            try {
+                DB db = new DB();
+                conn = db.getConnection();
+                String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
+                pst = conn.prepareStatement(sql);
+                pst.setDouble(1, cpt.getSolde_c());
+                pst.setLong(2, cpt.getNum_c());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            formatter.format(date);
+            long timeInMilliSeconds = date.getTime();
+            java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
+
+            DepotModel depot = new DepotModel(date, montant, cpt.getNum_c());
+            //Date date_op, float mnt_op,long num_c_em
+            try {
+                DB db = new DB();
+                conn = db.getConnection();
+                String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`) VALUES (1,?,?,?)";
+                pst = conn.prepareStatement(sql);
+                pst.setDate(1, sqlDate);
+                pst.setDouble(2, montant);
+                pst.setLong(3, cpt.getNum_c());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            lab_sol1.setText(String.valueOf(cpt.getSolde_c()));
         }
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        formatter.format(date);
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
-
-        DepotModel depot = new DepotModel( date, montant, cpt.getNum_c());
-        //Date date_op, float mnt_op,long num_c_em
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`) VALUES (1,?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setDate(1,sqlDate);
-            pst.setDouble(2, montant);
-            pst.setLong(3, cpt.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        lab_sol1.setText(String.valueOf(cpt.getSolde_c()));
     }
 
     @FXML
@@ -490,65 +500,77 @@ public class transactionController implements Initializable {
                 Float.parseFloat(lab_sol2.getText()),
                 Long.parseLong(lab_cin2.getText())
         );
-
-        if ("Ouvert".equals(lab_et2.getText()))
-            cpt.setEtat(true);
-        else
+        if ("Cloturé".equals(lab_et2.getText())) {
             cpt.setEtat(false);
-
-        Double montant = Double.valueOf(tf_mnt2.getText());
-        cpt.Depot(montant);
-
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
-            pst = conn.prepareStatement(sql);
-            pst.setDouble(1, cpt.getSolde_c());
-            pst.setLong(2, cpt.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            lab_err2.setText("Compte cloturé - transaction impossible");
         }
+        if ((Float.parseFloat(lab_sol2.getText()) < Double.valueOf(tf_mnt2.getText())))
+            lab_err2.setText("Solde insuffisant - transaction impossible");
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        formatter.format(date);
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
+        else {
+            cpt.setEtat(true);
 
-        DepotModel depot = new DepotModel( date, montant, cpt.getNum_c());
-        //Date date_op, float mnt_op,long num_c_em
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`) VALUES (2,?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setDate(1,sqlDate);
-            pst.setDouble(2, montant);
-            pst.setLong(3, cpt.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            if ("Ouvert".equals(lab_et2.getText()))
+                cpt.setEtat(true);
+            else
+                cpt.setEtat(false);
+
+            Double montant = Double.valueOf(tf_mnt2.getText());
+            cpt.Retrait(montant);
+
+            try {
+                DB db = new DB();
+                conn = db.getConnection();
+                String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
+                pst = conn.prepareStatement(sql);
+                pst.setDouble(1, cpt.getSolde_c());
+                pst.setLong(2, cpt.getNum_c());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            formatter.format(date);
+            long timeInMilliSeconds = date.getTime();
+            java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
+
+            DepotModel depot = new DepotModel(date, montant, cpt.getNum_c());
+            //Date date_op, float mnt_op,long num_c_em
+            try {
+                DB db = new DB();
+                conn = db.getConnection();
+                String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`) VALUES (2,?,?,?)";
+                pst = conn.prepareStatement(sql);
+                pst.setDate(1, sqlDate);
+                pst.setDouble(2, montant);
+                pst.setLong(3, cpt.getNum_c());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            lab_sol2.setText(String.valueOf(cpt.getSolde_c()));
         }
-
-        lab_sol2.setText(String.valueOf(cpt.getSolde_c()));
     }
+
     @FXML
     private void updateCompteVirement() {
 
         Connection conn;
         PreparedStatement pst;
+        if (tf_mnt3.getText() == "") {
+            lab_err3.setText("Entrez un montant");
+
+        } else {
+
+        }
         CompteModel cpt1 = new CompteModel(Long.parseLong(lab_id3.getText()),
                 TypeCompte.valueOf(lab_ty3.getText()),
                 Float.parseFloat(lab_sol3.getText()),
                 Long.parseLong(lab_cin3.getText())
         );
-
-        if ("Ouvert".equals(lab_et3.getText()))
-            cpt1.setEtat(true);
-        else
-            cpt1.setEtat(false);
 
         CompteModel cpt2 = new CompteModel(Long.parseLong(lab_id4.getText()),
                 TypeCompte.valueOf(lab_ty4.getText()),
@@ -556,63 +578,73 @@ public class transactionController implements Initializable {
                 Long.parseLong(lab_cin4.getText())
         );
 
-        if ("Ouvert".equals(lab_et4.getText()))
-            cpt2.setEtat(true);
-        else
-            cpt2.setEtat(false);
+        if ("Cloturé".equals(lab_et3.getText())) {
+            cpt1.setEtat(false);
+            lab_err3.setText("Compte cloturé - transaction impossible");
+        } else {
+            if ("Cloturé".equals(lab_et4.getText())) {
+                cpt2.setEtat(false);
+                lab_err3.setText("Compte cloturé - transaction impossible");
+            } else {
+                if ((Float.parseFloat(lab_sol3.getText()) < Double.valueOf(tf_mnt3.getText())))
+                    lab_err3.setText("Solde insuffisant - transaction impossible");
 
-        Double montant = Double.valueOf(tf_mnt3.getText());
-        cpt1.virerVers(cpt2,montant);
+                else {
 
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
-            pst = conn.prepareStatement(sql);
-            pst.setDouble(1, cpt1.getSolde_c());
-            pst.setLong(2, cpt1.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+                    Double montant = Double.valueOf(tf_mnt3.getText());
+                    cpt1.virerVers(cpt2, montant);
+
+                    try {
+                        DB db = new DB();
+                        conn = db.getConnection();
+                        String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
+                        pst = conn.prepareStatement(sql);
+                        pst.setDouble(1, cpt1.getSolde_c());
+                        pst.setLong(2, cpt1.getNum_c());
+                        pst.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        DB db = new DB();
+                        conn = db.getConnection();
+                        String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
+                        pst = conn.prepareStatement(sql);
+                        pst.setDouble(1, cpt2.getSolde_c());
+                        pst.setLong(2, cpt2.getNum_c());
+                        pst.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    Date date = new Date();
+                    formatter.format(date);
+                    long timeInMilliSeconds = date.getTime();
+                    java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
+
+                    VirementModel depot = new VirementModel(date, montant, cpt1.getNum_c(), cpt2.getNum_c());
+                    //Date date_op, float mnt_op,long num_c_em
+                    try {
+                        DB db = new DB();
+                        conn = db.getConnection();
+                        String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`, `num_c_ben`) VALUES (3,?,?,?,?)";
+                        pst = conn.prepareStatement(sql);
+                        pst.setDate(1, sqlDate);
+                        pst.setDouble(2, montant);
+                        pst.setLong(3, cpt1.getNum_c());
+                        pst.setLong(4, cpt2.getNum_c());
+                        pst.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    lab_sol3.setText(String.valueOf(cpt1.getSolde_c()));
+                    lab_sol4.setText(String.valueOf(cpt2.getSolde_c()));
+
+
+                }
+            }
         }
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "UPDATE comptes SET solde_c=?  WHERE num_c=?";
-            pst = conn.prepareStatement(sql);
-            pst.setDouble(1, cpt2.getSolde_c());
-            pst.setLong(2, cpt2.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        formatter.format(date);
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date sqlDate = new java.sql.Date(timeInMilliSeconds);
-
-        VirementModel depot = new VirementModel( date, montant, cpt1.getNum_c(), cpt2.getNum_c());
-        //Date date_op, float mnt_op,long num_c_em
-        try {
-            DB db = new DB();
-            conn = db.getConnection();
-            String sql = "INSERT INTO `transactions`( `type_op`, `date_op`, `mnt_op`, `num_c_em`, `num_c_ben`) VALUES (3,?,?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setDate(1,sqlDate);
-            pst.setDouble(2, montant);
-            pst.setLong(3, cpt1.getNum_c());
-            pst.setLong(4, cpt2.getNum_c());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        lab_sol3.setText(String.valueOf(cpt1.getSolde_c()));
-        lab_sol4.setText(String.valueOf(cpt2.getSolde_c()));
-
-
     }
-
 }
