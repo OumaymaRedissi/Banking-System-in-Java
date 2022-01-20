@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="457.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.clientController">
+   <VBox layoutX="133.0" layoutY="102.0" prefHeight="294.0" prefWidth="222.0" spacing="20.0">
+      <TextField fx:id="tf_ci" promptText="CIN" />
+      <TextField fx:id="tf_np" prefHeight="26.0" prefWidth="175.0" promptText="Nom et Prénom" />
+      <DatePicker fx:id="tf_date" prefHeight="26.0" prefWidth="226.0" promptText="Date de naissance" />
+      <TextField fx:id="tf_tel" prefHeight="26.0" prefWidth="182.0" promptText="Tel" />
+      <TextField fx:id="tf_em" promptText="Email" />
+      <TextField fx:id="tf_adr" promptText="Adresse" />
+   </VBox>
+   <Label layoutX="24.0" layoutY="12.0" text="Ajouter nouveau Client" textFill="#9eb9b4">
+      <font>
+         <Font size="33.0" />
+      </font>
+   </Label>
+   <VBox layoutX="24.0" layoutY="102.0" prefHeight="258.0" prefWidth="108.0" spacing="25.0">
+      <children>
+         <Label prefHeight="18.0" prefWidth="108.0" text="CIN : " />
+         <Label text="Nom et prénom : " />
+         <Label text="Date de naissance :" />
+         <Label text="Tel : " />
+         <Label text="Email : " />
+         <Label text="Adresse :" />
+      </children>
+   </VBox>
+   <Button layoutX="224.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #2980b9;" text="Valider" textFill="#f7f6f6">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <Separator layoutY="62.0" prefHeight="5.0" prefWidth="382.0" style="-fx-background-color: #2980b9;" />
+</AnchorPane>

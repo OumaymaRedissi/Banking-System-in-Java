@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.clientController">
+   <children>
+      <TableView fx:id="tv_clients" layoutX="22.0" layoutY="92.0" onMouseClicked="#onTableItemSelect" prefHeight="255.0" prefWidth="584.0">
+        <columns>
+          <TableColumn fx:id="tc_id" prefWidth="67.20007705688477" text="CIN" />
+          <TableColumn fx:id="tc_np" prefWidth="115.199951171875" text="Nom et Prénom" />
+            <TableColumn fx:id="tc_dn" prefWidth="116.00004577636719" text="Date de naissance" />
+            <TableColumn fx:id="tc_tel" prefWidth="75.199951171875" text="Telephone" />
+            <TableColumn fx:id="tc_em" prefWidth="85.60003662109375" text="Email" />
+            <TableColumn fx:id="tc_adr" prefWidth="121.60003662109375" text="Adresse" />
+        </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="11.0" text="Gestion des Clients" textFill="#2980b9">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Button layoutX="494.0" layoutY="398.0" mnemonicParsing="false" onMousePressed="#onUpdateClt" prefHeight="30.0" prefWidth="111.0" style="-fx-background-color: #2980b9;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="395.0" layoutY="398.0" mnemonicParsing="false" onAction="#deleteClient" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-text-fill: #d40707;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_ajouter" layoutX="504.0" layoutY="21.0" mnemonicParsing="false" onAction="#ajouterclt" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #2980b9;" text=" +  Ajouter" textFill="#f7f6f6">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="308.0" layoutY="21.0" mnemonicParsing="false" onAction="#load_page" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: #292e30;" text="Load" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tf_cin" layoutX="309.0" layoutY="60.0" prefHeight="25.0" prefWidth="217.0" promptText="Enter CIN à rechercher" />
+      <Label fx:id="label" layoutX="22.0" layoutY="405.0" prefHeight="17.0" prefWidth="277.0" textFill="#dddcdf">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_sel_tel" layoutX="160.0" layoutY="365.0" prefHeight="25.0" prefWidth="134.0" promptText="Telephone" />
+      <TextField fx:id="tf_sel_email" layoutX="299.0" layoutY="365.0" promptText="Email" />
+      <TextField fx:id="tf_sel_adr" layoutX="456.0" layoutY="365.0" promptText="Adresse" />
+      <Label fx:id="labelid" layoutX="61.0" layoutY="369.0" prefHeight="17.0" prefWidth="92.0" />
+      <Label layoutX="22.0" layoutY="369.0" text="CIN :" />
+      <Button fx:id="btn_search" layoutX="529.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchClient" prefHeight="25.0" prefWidth="77.0" text="Rechercher" />
+   </children>
+</Pane>

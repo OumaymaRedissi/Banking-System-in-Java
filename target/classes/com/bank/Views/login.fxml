@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.loginController">
+   <children>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2980B9;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/building.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="47.0" layoutY="184.0" prefHeight="59.0" prefWidth="106.0" text="R &amp; M" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="251.0" prefHeight="35.0" prefWidth="134.0" text="Redissi &amp; Mezgar Banking" textAlignment="CENTER" textFill="#f6f7f7">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="17.0" layoutY="244.0" prefHeight="6.0" prefWidth="166.0" style="-fx-background-color: #2980b9;" />
+                  <Label layoutX="60.0" layoutY="287.0" prefHeight="18.0" prefWidth="77.0" text="The right way to go." textFill="#fafbfc">
+                     <font>
+                        <Font name="Webdings" size="8.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="400.0" prefWidth="401.0">
+               <children>
+                  <Button fx:id="btnConn" defaultButton="true" layoutX="266.0" layoutY="309.0" mnemonicParsing="false" text="Se connecter" textOverrun="CLIP" />
+                  <Label layoutX="65.0" layoutY="204.0" text="Username" />
+                  <Label layoutX="54.0" layoutY="251.0" text="Mot de passe " />
+                  <PasswordField fx:id="tfMdp" layoutX="134.0" layoutY="248.0" prefHeight="26.0" prefWidth="212.0" />
+                  <TextField fx:id="tfLogin" layoutX="134.0" layoutY="200.0" prefHeight="26.0" prefWidth="212.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

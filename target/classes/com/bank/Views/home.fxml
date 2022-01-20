@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="478.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.homeController">
+   <children>
+      <Label layoutX="212.0" layoutY="79.0" prefHeight="119.0" prefWidth="263.0" text="R &amp; M" textAlignment="CENTER" textFill="#2980b9">
+         <font>
+            <Font size="81.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="210.0" prefHeight="59.0" prefWidth="430.0" text="Redissi &amp; Mezgar Banking" textAlignment="CENTER" textFill="#2980b9">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Separator layoutX="150.0" layoutY="194.0" prefHeight="8.0" prefWidth="387.0" style="-fx-background-color: #2980b9;" />
+      <Label layoutX="362.0" layoutY="269.0" prefHeight="23.0" prefWidth="198.0" text="The right way to go." textFill="#2980b9">
+         <font>
+            <Font name="Webdings" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

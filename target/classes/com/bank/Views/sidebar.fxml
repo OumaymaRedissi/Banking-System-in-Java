@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bank.Controllers.sidebarController">
+   <left>
+      <Pane BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="474.0" prefWidth="200.0" style="-fx-background-color: #2980b9;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/building.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#home" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="#ece5e5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#transactions" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Transactions" textFill="#ece5e5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#clients" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Clients" textFill="#ece5e5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#comptes" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Comptes" textFill="#ece5e5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="148.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+         </children></AnchorPane>
+   </center>
+   <top>
+      <Pane prefHeight="27.0" prefWidth="562.0" style="-fx-background-color: #2980b9;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="450.0" layoutY="5.0" prefHeight="17.0" prefWidth="155.0" text="Redissi and Mezgar Banking" textFill="WHITE" />
+         </children></Pane>
+   </top>
+</BorderPane>
